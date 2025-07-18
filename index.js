@@ -13,12 +13,10 @@ client.on('qr', qr => {
 });
 
 client.on('ready', async () => {
-    console.log(' WhatsApp connected.');
-
-    await sendPOTD();
+    console.log('✅ WhatsApp connected.');
 
     cron.schedule('0 9 * * *', async () => {
-        console.log(' Running scheduled task to send POTD...');
+        console.log('🕘 9 AM - Running scheduled POTD task...');
         await sendPOTD();
     });
 });
@@ -26,10 +24,11 @@ client.on('ready', async () => {
 async function sendPOTD() {
     const gfgLink = await getGFGPOTD();
     const leetcodeLink = await getLeetCodePOTD();
-const msg = `🚀 *Daily Coding Challenge* 🚀
 
- *GeeksforGeeks POTD:* ${gfgLink}
- *LeetCode POTD:* ${leetcodeLink}
+    const msg = `🚀 *Daily Coding Challenge* 🚀
+
+*GeeksforGeeks POTD:* ${gfgLink}
+*LeetCode POTD:* ${leetcodeLink}
 
 💡 Sharpen your skills, one problem at a time!
 ✨ Happy Coding! 💻🔥`;
@@ -40,7 +39,7 @@ const msg = `🚀 *Daily Coding Challenge* 🚀
 
         if (group) {
             await client.sendMessage(group.id._serialized, msg);
-            console.log(" POTD sent to group.");
+            console.log("✅ POTD sent to group.");
         } else {
             console.log(" Group not found. Please check the group name.");
         }
