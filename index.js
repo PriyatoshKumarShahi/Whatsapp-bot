@@ -17,7 +17,7 @@ client.on('ready', async () => {
 
     await sendPOTD();
 
-    cron.schedule('* * * * *', async () => {
+    cron.schedule('0 9 * * *', async () => {
         console.log(' Running scheduled task to send POTD...');
         await sendPOTD();
     });
