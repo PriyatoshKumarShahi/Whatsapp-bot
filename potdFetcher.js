@@ -3,7 +3,6 @@ const cheerio = require('cheerio');
 const MessageLog = require('./models/messageLog');
 const moment = require('moment'); 
 
-// Fetch GFG POTD
 async function getGFGPOTD() {
     try {
         const response = await axios.get('https://practice.geeksforgeeks.org/problem-of-the-day', {
@@ -26,7 +25,6 @@ async function getGFGPOTD() {
     }
 }
 
-// Fetch LeetCode POTD
 async function getLeetCodePOTD() {
     try {
         const res = await axios.post('https://leetcode.com/graphql/', {
@@ -55,11 +53,9 @@ async function getLeetCodePOTD() {
     }
 }
 
-// Combined function with MongoDB logging
 async function fetchAndLogPOTD(groupName = 'Default Group') {
     const today = moment().format('YYYY-MM-DD');
 
-    // Optional: Check if already sent today
     const alreadyLogged = await MessageLog.findOne({ date: today, groupName });
     if (alreadyLogged) {
         console.log(`⚠️ POTD already sent to '${groupName}' on ${today}. Skipping.`);
@@ -69,7 +65,6 @@ async function fetchAndLogPOTD(groupName = 'Default Group') {
     const gfgLink = await getGFGPOTD();
     const leetcodeLink = await getLeetCodePOTD();
 
-    // Save to MongoDB
     const newLog = await MessageLog.create({
         date: today,
         time: moment().format('HH:mm:ss'),
