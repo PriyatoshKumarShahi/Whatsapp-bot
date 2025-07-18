@@ -30,7 +30,7 @@ client.on('qr', qr => {
 client.on('ready', async () => {
     console.log('✅ WhatsApp connected.');
 
-    cron.schedule('30 10 * * *', async () => {
+    cron.schedule('45 10 * * *', async () => {
         console.log('🕘 9 AM - Running scheduled POTD task...');
         await sendPOTD();
     });
