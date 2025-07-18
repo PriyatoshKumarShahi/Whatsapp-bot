@@ -1,6 +1,6 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
-const MessageLog = require('./models/messageLog');
+const MessageLog = require('./models/messageLog.js');
 const moment = require('moment'); 
 
 async function getGFGPOTD() {
