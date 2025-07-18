@@ -2,6 +2,21 @@ const { Client, LocalAuth } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
 const cron = require('node-cron');
 const { getGFGPOTD, getLeetCodePOTD } = require('./potdFetcher');
+require('dotenv').config();
+const mongoose = require('mongoose');
+
+
+
+
+
+mongoose.connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(() => {
+    console.log("✅ Connected to MongoDB");
+}).catch(err => {
+    console.error("❌ MongoDB connection error:", err.message);
+});
 
 const client = new Client({
     authStrategy: new LocalAuth()
@@ -15,7 +30,7 @@ client.on('qr', qr => {
 client.on('ready', async () => {
     console.log('✅ WhatsApp connected.');
 
-    cron.schedule('0 9 * * *', async () => {
+    cron.schedule('30 10 * * *', async () => {
         console.log('🕘 9 AM - Running scheduled POTD task...');
         await sendPOTD();
     });
