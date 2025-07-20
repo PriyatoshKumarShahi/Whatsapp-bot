@@ -1,3 +1,6 @@
-2025/07/18-10:43:39.043 44ec Reusing MANIFEST C:\Users\priyt\OneDrive\Desktop\Web Development\whatsapp-bot\.wwebjs_auth\session\Default\Local Storage\leveldb/MANIFEST-000001
-2025/07/18-10:43:39.046 44ec Recovering log #3
-2025/07/18-10:43:39.047 44ec Reusing old log C:\Users\priyt\OneDrive\Desktop\Web Development\whatsapp-bot\.wwebjs_auth\session\Default\Local Storage\leveldb/000003.log 
+2025/07/18-10:50:22.119 47a0 Reusing MANIFEST C:\Users\priyt\OneDrive\Desktop\Web Development\whatsapp-bot\.wwebjs_auth\session\Default\Local Storage\leveldb/MANIFEST-000001
+2025/07/18-10:50:22.120 47a0 Recovering log #3
+2025/07/18-10:50:22.120 47a0 Reusing old log C:\Users\priyt\OneDrive\Desktop\Web Development\whatsapp-bot\.wwebjs_auth\session\Default\Local Storage\leveldb/000003.log 
+2025/07/18-10:52:22.916 40b0 Level-0 table #5: started
+2025/07/18-10:52:22.929 40b0 Level-0 table #5: 20292 bytes OK
+2025/07/18-10:52:22.934 40b0 Delete type=0 #3
